@@ -9,7 +9,8 @@ server.on('request', (req, res) => {
 
     res.statusCode = 201
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.end("Recurso criado");    
+    res.end("Recurso criado");
+    console.log(new Date().toISOString())    
 });
 
 server.listen(porta, ()=> {
