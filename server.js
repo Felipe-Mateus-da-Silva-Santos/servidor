@@ -26,15 +26,26 @@ const server = http.createServer((req, res) => {
             "numero_telefone": "67 99999-9999",
             "endereco": "Rua da Alegria, 99"
         }));
+    }else {
+        res.statusCode = 404;
+        res.end(JSON.stringify({"status": "Página não encontrada"}))
     }
 
     if (req.method == "GET" && urlObj.pathname == "/produtos") {
         return res.end(JSON.stringify(produtos));
+    }else {
+        res.statusCode = 404;
+        res.end(JSON.stringify({"status": "Página não encontrada"}))
     }
 
     if (req.method == "GET" && urlObj.pathname == "/status") {
         return res.end(JSON.stringify({"status": "ok"}));
+    }else {
+        res.statusCode = 404;
+        res.end(JSON.stringify({"status": "Página não encontrada"}))
     }
+
+    
 
     res.end(JSON.stringify({ "data": "Página Inicial" }));
 });
